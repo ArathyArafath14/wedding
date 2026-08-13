@@ -1,0 +1,112 @@
+.mouse-gallery {
+  --bob: 2.6rem;
+  position: relative;
+  width: 100%;
+  min-height: min(78vh, 820px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #fff;
+  padding: clamp(4rem, 10vh, 7rem) 0;
+}
+
+.mouse-gallery__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(2.25rem, 5vw, 5.5rem);
+  width: max-content;
+  padding-inline: clamp(1.5rem, 6vw, 7rem);
+  will-change: transform;
+}
+
+.mouse-gallery__item {
+  position: relative;
+  margin: 0;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: #f3ece6;
+  will-change: transform;
+}
+
+.mouse-gallery__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mouse-gallery__item--portrait {
+  width: clamp(200px, 18vw, 280px);
+  height: clamp(280px, 26vw, 400px);
+}
+
+.mouse-gallery__item--tall {
+  width: clamp(160px, 13vw, 210px);
+  height: clamp(340px, 34vw, 520px);
+}
+
+.mouse-gallery__item--square {
+  width: clamp(210px, 20vw, 300px);
+  height: clamp(210px, 20vw, 300px);
+}
+
+.mouse-gallery__item.is-up {
+  animation: galleryBobUp 3.6s ease-in-out infinite;
+}
+
+.mouse-gallery__item.is-down {
+  animation: galleryBobDown 3.6s ease-in-out infinite;
+}
+
+@keyframes galleryBobUp {
+  0%,
+  100% {
+    transform: translate3d(0, var(--bob), 0);
+  }
+  50% {
+    transform: translate3d(0, calc(var(--bob) * -1), 0);
+  }
+}
+
+@keyframes galleryBobDown {
+  0%,
+  100% {
+    transform: translate3d(0, calc(var(--bob) * -1), 0);
+  }
+  50% {
+    transform: translate3d(0, var(--bob), 0);
+  }
+}
+
+@media (max-width: 760px) {
+  .mouse-gallery {
+    --bob: 1.2rem;
+    min-height: 0;
+    padding: 3.5rem 0;
+  }
+
+  .mouse-gallery__track {
+    gap: 1.6rem;
+    padding-inline: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mouse-gallery__item.is-up,
+  .mouse-gallery__item.is-down {
+    animation: none;
+  }
+
+  .mouse-gallery__item.is-up {
+    transform: translate3d(0, -1.4rem, 0);
+  }
+
+  .mouse-gallery__item.is-down {
+    transform: translate3d(0, 1.6rem, 0);
+  }
+
+  .mouse-gallery__item,
+  .mouse-gallery__track {
+    will-change: auto;
+  }
+}

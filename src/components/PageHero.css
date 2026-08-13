@@ -1,0 +1,11 @@
+.page-hero {
+  padding: clamp(3rem, 6vw, 4.5rem) 0 2.5rem;
+  background: var(--mist);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.page-hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  max-width: 14ch;
+  text-transform: none;
+}

@@ -1,0 +1,15 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout main {
+  flex: 1;
+}
+
+/* Inner pages need top offset because header is fixed */
+.layout main > .page-hero,
+.layout main > .section:first-child {
+  scroll-margin-top: var(--header-h);
+}
