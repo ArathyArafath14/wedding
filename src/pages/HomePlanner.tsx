@@ -4,13 +4,7 @@ import { Countdown } from '../components/Countdown'
 import { StoryScroll } from '../components/StoryScroll'
 import { InviteDay } from '../components/InviteDay'
 import { MouseGallery } from '../components/MouseGallery'
-import {
-  portfolio,
-  services,
-  site,
-  team,
-  testimonials,
-} from '../data/content'
+import { site } from '../data/content'
 import './home.css'
 
 export function HomePlanner() {
